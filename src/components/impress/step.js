@@ -62,10 +62,8 @@ export const Step = ({
 
   const navigate = useNavigate()
   const jumpToStep = useCallback(() => {
-    console.log({ step, currentStep })
-
     if (step === currentStep) {
-      navigate('../')
+      navigate('../1')
     } else {
       navigate(`../${ step }`)
     }

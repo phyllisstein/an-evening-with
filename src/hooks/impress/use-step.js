@@ -16,8 +16,8 @@ export const useStep = max => {
     }
   }, [params.step, step, max])
 
-  const nextPath = params.step == null ? `${ step + 1 }` : `../${ step + 1 }`
-  const previousPath = params.step == null ? `${ step - 1 }` : `../${ step - 1 }`
+  const nextPath = `../${ step + 1 }`
+  const previousPath = `../${ step - 1 }`
 
   const next = useCallback(() => navigate(nextPath), [nextPath])
   const previous = useCallback(() => navigate(previousPath), [previousPath])
