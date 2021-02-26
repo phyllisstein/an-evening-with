@@ -3,13 +3,13 @@ import { useEffect } from 'react'
 import { useHammer } from './use-hammer'
 
 export const useSwipe = handler => {
-    const mc = useHammer()
+  const mc = useHammer()
 
-    mc.add(new Swipe({ direction: DIRECTION_HORIZONTAL }))
+  mc.add(new Swipe({ direction: DIRECTION_HORIZONTAL }))
 
-    useEffect(() => {
-        mc.on('swipe', handler)
+  useEffect(() => {
+    mc.on('swipe', handler)
 
-        return () => mc.off('swipe', handler)
-    }, [handler])
+    return () => mc.off('swipe', handler)
+  }, [handler])
 }

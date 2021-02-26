@@ -1,30 +1,30 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const Body = createGlobalStyle`
-    *,
-    *::before,
-    *::after {
-        box-sizing: inherit;
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
 
-        outline: none;
+    outline: none;
 
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-    }
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
 
-    html {
-        box-sizing: border-box;
+  html {
+    box-sizing: border-box;
 
-        color: ${ ({ theme }) => theme.palette.css.text };
-        font: 62.5%/1.5 sans-serif;
+    color: ${ ({ theme }) => theme.palette.css.text };
+    font: 62.5%/1.5 sans-serif;
 
-        font-kerning: normal;
-        font-variant-ligatures: common-ligatures;
-        font-variant-numeric: oldstyle-nums proportional-nums;
-    }
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures;
+    font-variant-numeric: oldstyle-nums proportional-nums;
+  }
 
-    body {
-        ${ ({ theme }) => theme.typeface.primary() }
+  body {
+    ${ ({ theme }) => theme.typeface.primary() }
 
-        color: ${ ({ theme }) => theme.palette.css.text };
-    }
+    color: ${ ({ theme }) => theme.palette.css.text };
+  }
 `

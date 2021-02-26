@@ -14,22 +14,22 @@ const timestampStyle = oneLine`
 `
 
 export const DebugObserver = () => {
-    const snapshot = useRecoilSnapshot()
+  const snapshot = useRecoilSnapshot()
 
-    useEffect(() => {
-        console.groupCollapsed(
-            '%cRECOIL ATOMS CHANGED\t\t%c%s',
-            groupStyle,
-            timestampStyle,
-            new Date().toISOString(),
-        )
+  useEffect(() => {
+    console.groupCollapsed(
+      '%cRECOIL ATOMS CHANGED\t\t%c%s',
+      groupStyle,
+      timestampStyle,
+      new Date().toISOString(),
+    )
 
-        for (const node of snapshot.getNodes_UNSTABLE()) {
-            console.log(node.key, snapshot.getLoadable(node))
-        }
+    for (const node of snapshot.getNodes_UNSTABLE()) {
+      console.log(node.key, snapshot.getLoadable(node))
+    }
 
-        console.groupEnd()
-    })
+    console.groupEnd()
+  })
 
-    return null
+  return null
 }

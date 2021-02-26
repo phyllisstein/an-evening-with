@@ -1,5 +1,5 @@
 {
-    // "typescript.tsdk": "node_modules/typescript/lib",
-    // "stylelint.customSyntax": "/Users/daniel/Code/Personal/an-evening-with/node_modules/postcss-styled",
-    "stylelint.enable": true
+  // "typescript.tsdk": "node_modules/typescript/lib",
+  // "stylelint.customSyntax": "/Users/daniel/Code/Personal/an-evening-with/node_modules/postcss-styled",
+  "stylelint.enable": true
 }

@@ -10,16 +10,16 @@ import * as typeface from './typeface'
 import { animation } from './animation'
 
 const theme = {
-    animation,
-    easing,
-    elevation,
-    materialPalette,
-    palette,
-    plumber,
-    responsive,
-    scale,
-    spectrumPalette,
-    typeface,
+  animation,
+  easing,
+  elevation,
+  materialPalette,
+  palette,
+  plumber,
+  responsive,
+  scale,
+  spectrumPalette,
+  typeface,
 }
 
 export default theme
