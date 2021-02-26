@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StepWrapper = styled.div`
-    width: 77.8vw;
-    padding: 10%;
+export const Image = styled.img`
+    height: auto;
+    width: 256px;
 `

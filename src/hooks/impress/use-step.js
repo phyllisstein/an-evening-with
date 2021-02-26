@@ -8,7 +8,7 @@ export const useStep = max => {
 
     useEffect(() => {
         if (params.step == null) {
-            navigate('1', { replace: true })
+            navigate('1')
         } else if (max != null && step > max) {
             navigate('../1')
         } else if (max != null && step < 1) {

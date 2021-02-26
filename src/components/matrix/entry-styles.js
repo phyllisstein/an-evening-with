@@ -1,6 +1,5 @@
-import { Step } from 'components/impress'
 import styled from 'styled-components'
 
-export const Root = styled(Step)`
+export const Root = styled.div`
     padding: 10%;
 `
