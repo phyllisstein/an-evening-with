@@ -1,6 +1,5 @@
 const Config = require('webpack-chain')
 const LoadablePlugin = require('@loadable/webpack-plugin')
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const merge = require('merge-deep')
 const nodeExternals = require('webpack-node-externals')
 const path = require('path')
@@ -143,15 +142,6 @@ client.module
     )
 
 client.module
-    .rule('style')
-    .test(/\.css$/)
-    .use('style')
-    .loader('style-loader')
-    .end()
-    .use('css')
-    .loader('css-loader')
-
-client.module
     .rule('fonts')
     .test(/\.(woff2?)$/)
     .set('type', 'asset')
@@ -195,12 +185,6 @@ client.plugin('define').use(webpack.DefinePlugin, [
         __SSR__: JSON.stringify(false),
     },
 ])
-
-// client
-//   .plugin('mini-css-extract')
-//   .use(MiniCssExtractPlugin, [
-//     {chunkFilename: 'css/[contenthash].css', filename: 'css/[contenthash].css'},
-//   ])
 
 client.plugin('loadable').use(LoadablePlugin)
 

@@ -1,12 +1,3 @@
-const loadCSS = async () => {
-    await Promise.all([
-        import('normalize.css'),
-        import('fonts/miller-text/index.css'),
-        import('fonts/miller-display/index.css'),
-        import('fonts/egyptienne/index.css'),
-    ])
-}
-
 const renderApp = async () => {
     const [
         { App },
@@ -47,6 +38,6 @@ const renderApp = async () => {
     }
 }
 
-const bootstrap = async () => await Promise.all([loadCSS(), renderApp()])
+const bootstrap = async () => await Promise.all([renderApp()])
 
 export default bootstrap
