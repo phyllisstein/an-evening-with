@@ -5,20 +5,12 @@ import { useMem } from '../optimization'
 const getSteppedChildren = c => {
     const childArray = Children.toArray(c)
 
-    let stepCount = 0
-
     return childArray.reduce((acc, child, index) => {
-        if (child.type === Step) {
-            stepCount += 1
+        const nextChild = cloneElement(child, {
+            step: index + 1,
+        })
 
-            const nextChild = cloneElement(child, {
-                step: stepCount,
-            })
-            acc.push(nextChild)
-        } else {
-            acc.push(child)
-        }
-
+        acc.push(nextChild)
         return acc
     }, [])
 }
@@ -26,7 +18,7 @@ const getSteppedChildren = c => {
 const getStepCount = c => {
     const childArray = Children.toArray(c)
 
-    return childArray.filter(child => child.type === Step).length
+    return childArray.length
 }
 
 export const useSteppedChildren = children => {
