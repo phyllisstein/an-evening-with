@@ -1,5 +1,5 @@
-import { AdobeClean, Egyptienne, MillerDisplay, MillerText } from 'fonts'
-import { Route, Routes } from 'react-router-dom'
+import { DINText, Egyptienne, MillerDisplay, MillerText } from 'fonts'
+import { Navigate, Route, Routes } from 'react-router'
 import { ApprovalMatrix } from 'routes/approval-matrix'
 import avatarFB from 'assets/avatar-fb.jpg'
 import avatarTW from 'assets/avatar-tw.jpg'
@@ -30,7 +30,7 @@ export const App = () => {
     <RecoilRoot>
       <ThemeProvider theme={ theme }>
         <>
-          <AdobeClean/>
+          <DINText/>
           <Egyptienne/>
           <MillerDisplay/>
           <MillerText/>
@@ -66,7 +66,7 @@ export const App = () => {
             <link href={ faviconPNG } rel='icon' sizes='192x192'/>
           </Helmet>
           <Routes>
-            <Route element={ <ApprovalMatrix/> } path='matrix'/>
+            <Route element={ <Navigate to='1'/> } path='matrix'/>
             <Route element={ <ApprovalMatrix/> } path='matrix/:step'/>
           </Routes>
         </>

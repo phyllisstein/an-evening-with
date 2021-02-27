@@ -3,7 +3,10 @@ import { css } from 'styled-components'
 import { getValueAndUnit } from 'polished'
 import { unitless } from './scale'
 
+// (UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)
 const BASELINE = {
+  ADOBE_CLEAN: 0.113,
+  DIN_TEXT: 0.25,
   EGYPTIENNE: 0.18,
   MILLER_DISPLAY: 0.183,
   MILLER_TEXT: 0.183,
@@ -24,11 +27,11 @@ const getBaselineCorrection = ({ baseline, fontSize, lineHeight }) => {
 
 const getPlumber = ({
   baseline: B,
-  fontSize: FONT_SIZE = 2,
+  fontSize: FONT_SIZE = 7,
   gridHeight: GRID_HEIGHT = '1rem',
   leadingBottom: LEADING_BOTTOM = 0,
   leadingTop: LEADING_TOP = 0,
-  lineHeight: LINE_HEIGHT = 3,
+  lineHeight: LINE_HEIGHT,
   useBaselineOrigin: USE_BASELINE_ORIGIN = false,
 }) => {
   function plumber({
@@ -42,7 +45,7 @@ const getPlumber = ({
   } = {}) {
     const [gridHeightValue, gridHeightUnit] = getValueAndUnit(gridHeight)
     fontSize = unitless(fontSize)
-    lineHeight = unitless(lineHeight)
+    lineHeight = lineHeight == null ? fontSize : unitless(lineHeight)
 
     const { baselineDifference, correctedBaseline } = getBaselineCorrection({
       baseline,
@@ -103,6 +106,7 @@ const getPlumber = ({
   return plumber
 }
 
-export const primary = getPlumber({ baseline: BASELINE.MILLER_TEXT })
-export const accent = getPlumber({ baseline: BASELINE.EGYPTIENNE })
-export const hed = getPlumber({ baseline: BASELINE.MILLER_DISPLAY })
+export const primary = getPlumber({ baseline: BASELINE.DIN_TEXT })
+export const accent = getPlumber({ baseline: BASELINE.MILLER_TEXT })
+export const hed = getPlumber({ baseline: BASELINE.EGYPTIENNE })
+export const hedAccent = getPlumber({ baseline: BASELINE.MILLER_DISPLAY })

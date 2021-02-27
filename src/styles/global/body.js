@@ -15,7 +15,7 @@ export const Body = createGlobalStyle`
     box-sizing: border-box;
 
     color: ${ ({ theme }) => theme.palette.css.text };
-    font: 62.5%/1.5 sans-serif;
+    font: 31.25%/1.333 sans-serif;
 
     font-kerning: normal;
     font-variant-ligatures: common-ligatures;

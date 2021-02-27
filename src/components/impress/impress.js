@@ -34,12 +34,15 @@ export const Impress = ({
   scale: scaleConstraints = {},
   width,
 }) => {
+  width ??= canUseDOM && window.innerWidth
+  height ??= canUseDOM && window.innerHeight
+
   const [windowScale, setWindowScale] = useState(() =>
     getWindowScale(height, width, scaleConstraints),
   )
   const [steppedChildren, stepCount] = useSteppedChildren(children)
   const [step] = useStep(stepCount)
-  const previousScale = useRef(1)
+  const previousScale = useRef(0)
 
   const current = useRecoilValue(impress.animation(step))
 
@@ -62,7 +65,7 @@ export const Impress = ({
 
   const zoom = targetScale >= previousScale.current
   previousScale.current = targetScale
-  const perspective = (perspectiveBase / targetScale) * windowScale
+  const perspective = perspectiveBase / targetScale
 
   return (
     <>
@@ -70,7 +73,7 @@ export const Impress = ({
       <Root
         animate={{
           perspective,
-          scale: targetScale,
+          scale: targetScale * windowScale,
         }}
         initial={{
           perspective: perspectiveBase,

@@ -162,6 +162,16 @@ client.module
     filename: 'videos/[name].[hash][ext]',
   })
 
+client.module
+  .rule('svg')
+  .test(/\.svg$/)
+  .use('svgr')
+  .loader('@svgr/webpack')
+  .options({
+    ref: true,
+    svgo: true,
+  })
+
 client.resolve
   .enforceExtension(false)
   .extensions.add('.ts')
@@ -281,6 +291,16 @@ server.module
   .set('type', 'asset')
   .set('generator', {
     filename: 'videos/[name].[hash][ext]',
+  })
+
+server.module
+  .rule('svg')
+  .test(/\.svg$/)
+  .use('svgr')
+  .loader('@svgr/webpack')
+  .options({
+    ref: true,
+    svgo: true,
   })
 
 server.resolve

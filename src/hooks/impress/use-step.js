@@ -4,17 +4,19 @@ import { useNavigate, useParams } from 'react-router'
 export const useStep = max => {
   const navigate = useNavigate()
   const params = useParams()
-  const step = params.step != null ? Number.parseInt(params.step, 10) : 1
+  const step = Number.parseInt(params.step, 10)
+  const maxRef = useRef(null)
+  maxRef.current ??= max
 
   useEffect(() => {
     if (params.step == null) {
       navigate('1')
-    } else if (max != null && step > max) {
+    } else if (step > maxRef.current) {
       navigate('../1')
-    } else if (max != null && step < 1) {
-      navigate(`../${ max }`)
+    } else if (step < 1) {
+      navigate(`../${ maxRef.current }`)
     }
-  }, [params.step, step, max])
+  }, [params.step, step, maxRef])
 
   const nextPath = `../${ step + 1 }`
   const previousPath = `../${ step - 1 }`
